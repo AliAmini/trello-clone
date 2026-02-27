@@ -1,0 +1,65 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.card {
+  background: $card-background;
+  border-radius: $border-radius;
+  padding: $spacing-sm;
+  margin-bottom: $spacing-sm;
+  cursor: pointer;
+  @include card-shadow;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+
+  &:hover {
+    box-shadow: 0 2px 4px rgba(9, 30, 66, 0.25);
+  }
+
+  &__title {
+    font-size: $font-size-md;
+    color: $text-primary;
+    word-wrap: break-word;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__comments {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    color: $text-secondary;
+    font-size: $font-size-sm;
+    padding: $spacing-xs;
+    border-radius: $border-radius;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(9, 30, 66, 0.08);
+    }
+
+    &--empty {
+      opacity: 0.6;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    span {
+      line-height: 1;
+    }
+  }
+
+  @include mobile {
+    padding: $spacing-xs;
+  }
+}
+
+.sortableCard {
+  touch-action: none;
+}
