@@ -1,0 +1,132 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.list {
+  background: $list-background;
+  border-radius: $border-radius-lg;
+  width: 272px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 120px);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-sm $spacing-md;
+    gap: $spacing-sm;
+  }
+
+  &__title {
+    flex: 1;
+    font-weight: 600;
+    font-size: $font-size-md;
+  }
+
+  &__menu {
+    position: relative;
+  }
+
+  &__menuButton {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-radius;
+    color: $text-secondary;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(9, 30, 66, 0.08);
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: $spacing-xs;
+    background: $card-background;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 8px rgba(9, 30, 66, 0.25);
+    min-width: 180px;
+    z-index: 10;
+    overflow: hidden;
+
+    button {
+      display: block;
+      width: 100%;
+      padding: $spacing-sm $spacing-md;
+      text-align: left;
+      font-size: $font-size-md;
+      color: $text-primary;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: rgba(9, 30, 66, 0.08);
+      }
+    }
+  }
+
+  &__deleteButton {
+    color: #c9372c !important;
+
+    &:hover {
+      background-color: rgba(201, 55, 44, 0.1) !important;
+    }
+  }
+
+  &__cards {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 $spacing-md $spacing-sm;
+    min-height: 20px;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(9, 30, 66, 0.13);
+      border-radius: 4px;
+
+      &:hover {
+        background: rgba(9, 30, 66, 0.25);
+      }
+    }
+  }
+
+  &__addCard {
+    margin: 0 $spacing-md $spacing-md;
+    padding: $spacing-sm;
+    text-align: left;
+    color: $text-secondary;
+    font-size: $font-size-md;
+    border-radius: $border-radius;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(9, 30, 66, 0.08);
+      color: $text-primary;
+    }
+  }
+
+  @include mobile {
+    width: 100%;
+    max-height: none;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.sortableList {
+  touch-action: none;
+}
