@@ -1,0 +1,95 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.board {
+  min-height: 100vh;
+  background: $background-color;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    padding: $spacing-md $spacing-lg;
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: white;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  &__lists {
+    flex: 1;
+    display: flex;
+    gap: $spacing-md;
+    padding: $spacing-lg;
+    overflow-x: auto;
+    overflow-y: hidden;
+    align-items: flex-start;
+
+    &::-webkit-scrollbar {
+      height: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+
+  &__addList {
+    background: rgba(255, 255, 255, 0.24);
+    color: white;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-lg;
+    font-size: $font-size-md;
+    font-weight: 500;
+    min-width: 272px;
+    height: fit-content;
+    text-align: left;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.32);
+    }
+  }
+
+  @include mobile {
+    &__lists {
+      flex-direction: column;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    &__addList {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+}
+
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: $font-size-lg;
+  color: white;
+  background: $background-color;
+}
