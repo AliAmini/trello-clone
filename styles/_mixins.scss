@@ -1,0 +1,16 @@
+@mixin card-shadow {
+  box-shadow: 0 1px 0 rgba(9, 30, 66, 0.25);
+}
+
+@mixin hover-lift {
+  transition: transform 0.1s ease;
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
