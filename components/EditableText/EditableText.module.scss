@@ -1,0 +1,37 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.text {
+  cursor: pointer;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius;
+  transition: background-color 0.2s ease;
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(9, 30, 66, 0.08);
+  }
+
+  &:focus {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-xs $spacing-sm;
+  border: 2px solid $primary-color;
+  border-radius: $border-radius;
+  font-size: inherit;
+  font-weight: inherit;
+  color: $text-primary;
+  background: $card-background;
+  outline: none;
+
+  &::placeholder {
+    color: $text-secondary;
+  }
+}
